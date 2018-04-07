@@ -26,7 +26,7 @@ app.get('/*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-var server = app.listen(8080, () => console.log('Running on localhost:8080'));
+var server = app.listen(process.env.port || 8080, () => console.log('Running on localhost:8080'));
 
 var io = socket(server);
 io.on('connection', (socket) => {
