@@ -22,7 +22,7 @@ router.post('/add_message', (req, res) => {
 	const token = req.body.data.token;
 	//verify token, extract data, add message to chat database
 	var id;
-	jwt.verify(token, "secretkey", (err,decoded) =>{ 
+	jwt.verify(token, process.env.SECRET_KEY, (err,decoded) =>{ 
 		if (err){
 			res.status(401).json( { errors: {global: "Invalid token"}});
 		}

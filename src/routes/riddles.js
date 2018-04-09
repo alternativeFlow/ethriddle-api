@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 router.post("/get_all_user_riddles", (req, res) => {
-	jwt.verify(req.body.token, "secretkey", (err, decoded) => {
+	jwt.verify(req.body.token, process.env.SECRET_KEY, (err, decoded) => {
 		if (err) {
 			res.status(401).json({});
 		}
@@ -37,7 +37,7 @@ router.post("/get_all_user_riddles", (req, res) => {
 router.post('/create_riddle', (req, res) => {
 	const { token, title, riddle, answer, payoutAmt, guessCost } = req.body.data;	
 		try {
-			jwt.verify(token, "secretkey", (err, decoded) => {
+			jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
 				if (err) {
 					res.status(401).json({});
 				}

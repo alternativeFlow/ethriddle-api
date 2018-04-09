@@ -29,7 +29,7 @@ schema.methods.generateJWT = function generateJWT() {
 			email: this.email,
 			confirmed: this.confirmed
 		}, 
-		"secretkey"
+		process.env.SECRET_KEY
 	);
 };
 
