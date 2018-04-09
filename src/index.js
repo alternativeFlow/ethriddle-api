@@ -16,7 +16,7 @@ var corsOptions = {
 	origin: 'https://ethriddle-react.herokuapp.com/'
 }
 
-app.user(cors(corsOptions));
+app.use(cors(corsOptions));
 
 dotenv.config();
 const app = express();
