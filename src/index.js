@@ -12,15 +12,16 @@ import users from './routes/users';
 import riddles from './routes/riddles';
 import chat from './routes/chat';
 
-var corsOptions = {
-	origin: 'https://ethriddle-react.herokuapp.com/'
-}
-
-app.use(cors(corsOptions));
-
 dotenv.config();
 const app = express();
 app.use(bodyParser.json());
+
+var corsOptions = {
+	origin: 'https://ethriddle-react.herokuapp.com/'
+};
+
+app.use(cors(corsOptions));
+
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URL);
 
