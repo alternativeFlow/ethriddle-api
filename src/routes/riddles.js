@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 	Riddle.find({ active: true })
+		.sort({"_id": -1})
 		.populate('owner')
 		.then(riddles => {
 			res.json({ riddles: riddles });
@@ -23,6 +24,7 @@ router.post("/get_all_user_riddles", (req, res) => {
 		}
 		else {
 			Riddle.find({ owner: decoded._id })
+				.sort({"_id": -1})
 				.populate('owner')
 				.then(riddles => {
 					res.json({ riddles: riddles });
