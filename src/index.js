@@ -16,11 +16,8 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 
-var corsOptions = {
-	origin: 'https://ethriddle-react.herokuapp.com/'
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URL);
