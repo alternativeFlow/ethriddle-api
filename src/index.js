@@ -5,11 +5,18 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import Promise from 'bluebird';
 var socket = require('socket.io');
+var cors = require('cors');
 
 import auth from './routes/auth';
 import users from './routes/users';
 import riddles from './routes/riddles';
 import chat from './routes/chat';
+
+var corsOptions = {
+	origin: 'https://ethriddle-react.herokuapp.com/'
+}
+
+app.user(cors(corsOptions));
 
 dotenv.config();
 const app = express();
